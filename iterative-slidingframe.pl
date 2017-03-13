@@ -22,16 +22,16 @@ my $verbose =			 0;		#Equals 1 when user indicates to run in verbose mode
 my $blastversion =		"";		#Local version of blastn. Only needed to check if blastn is available
 
 my $queryfilename =		"";		#Filename for the query sequence that will be blasted
-my $outputfilename =	"";		#Filename for the output file for the user
-my $tmpresultsfile =	"";		#File that will hold the frames until the next genome is analysed
+my $outputfilename =		"";		#Filename for the output file for the user
+my $tmpresultsfile =		"";		#File that will hold the frames until the next genome is analysed
 my $countfilename =		"";		#Name of the file that will show the number of frames left after each iteration
 my $refgenomefile =		"";		#Filename of the genome that will act as reference
-my $outgroupdbname =	"";		#Name of the BLAST db with the outgroup sequences
-my $ingroupfilename =	"";		#File that contains the filename of ingroup sequence that is processed
+my $outgroupdbname =		"";		#Name of the BLAST db with the outgroup sequences
+my $ingroupfilename =		"";		#File that contains the filename of ingroup sequence that is processed
 
 # Initialize critical values when interpreting BLAST-results
-my $idOut =			     0;		#id-percentage of out-group sequences
-my $idIn =			     0;		#id-percentage of in-group sequences
+my $idOut =			 0;		#id-percentage of out-group sequences
+my $idIn =			 0;		#id-percentage of in-group sequences
 my $coverageOut =		 0;		#Query coverage of out-group sequences
 my $coverageIn =		 0;		#Query coverage of in-group sequences
 
@@ -39,8 +39,8 @@ my $windowsize =		 0;		#Number of nt to be BLAST'ed
 my $shiftsize =			 0;		#Number of nt to shift the frame after each iteration
 my $blastcmd = 			"";		#bash command to run blast
 my $blastresult =		"";		#Result that is returned by blastn
-my $windowsequence =	"";
-my $genomesanalysed =	 0;		#Number of genomes analysed/number of iterations
+my $windowsequence =		"";
+my $genomesanalysed =	 	 0;		#Number of genomes analysed/number of iterations
 my $framesleft =		 0;		#Number of frames that are left after an iteration
 
 
@@ -51,17 +51,17 @@ my $framesleft =		 0;		#Number of frames that are left after an iteration
 ## These arguments are extracted from the command line.
 
 GetOptions(		"help"			        => \$showhelp,
-				"verbose"		        => \$verbose,
+				"verbose"		=> \$verbose,
 				"framesize=i"	        => \$windowsize,
-				"shift=i"		        => \$shiftsize,
+				"shift=i"		=> \$shiftsize,
 				"reference=s"	        => \$refgenomefile,
-				"output=s"		        => \$outputfilename,
+				"output=s"		=> \$outputfilename,
 				"outgroupdb=s"	        => \$outgroupdbname,
 				"ingrouplist=s"	        => \$ingroupfilename,
-				"idoutgroup=i"		    => \$idOut,
-				"idingroup=i"		    => \$idIn,
+				"idoutgroup=i"		=> \$idOut,
+				"idingroup=i"		=> \$idIn,
 				"coverageoutgroup=i"	=> \$coverageOut,
-				"coverageingroup=i"	    => \$coverageIn) 
+				"coverageingroup=i"	=> \$coverageIn) 
 				or die ("Error in command line arguments. Use -help to obtain more information.\n");
 				
 if ( $showhelp ) { help(); }
